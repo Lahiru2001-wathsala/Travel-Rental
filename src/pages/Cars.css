@@ -1,0 +1,205 @@
+/* ===== CARS PAGE ===== */
+
+.cars-page {
+  padding-top: 70px;
+  min-height: 100vh;
+}
+
+/* Header */
+.cars-header {
+  background: radial-gradient(900px 500px at 15% 0%, rgba(79, 70, 229, 0.22), transparent 55%),
+              radial-gradient(900px 520px at 95% 20%, rgba(34, 197, 94, 0.18), transparent 55%),
+              linear-gradient(180deg, #0b1020 0%, #070a12 100%);
+  padding: 60px 0 48px;
+  margin-bottom: 48px;
+}
+
+.cars-header__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.cars-header__subtitle {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Search */
+.cars-filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cars-search {
+  flex: 1;
+  min-width: 240px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cars-search__icon {
+  position: absolute;
+  left: 16px;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.cars-search__input {
+  width: 100%;
+  padding: 13px 44px;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.cars-search__input:focus {
+  border-color: var(--terracotta);
+  background: var(--white);
+  box-shadow: var(--focus-ring);
+}
+
+.cars-search__clear {
+  position: absolute;
+  right: 16px;
+  background: none;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  padding: 4px;
+  transition: color var(--transition);
+}
+
+.cars-search__clear:hover {
+  color: var(--terracotta);
+}
+
+/* Controls */
+.cars-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cars-sort {
+  padding: 12px 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.cars-sort:focus {
+  border-color: var(--terracotta);
+  box-shadow: var(--focus-ring);
+}
+
+.cars-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.cars-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--terracotta);
+  cursor: pointer;
+}
+
+/* Category Pills */
+.categories {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.category-pill {
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1.5px solid var(--border);
+  background: rgba(255, 255, 255, 0.86);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  transition: all var(--transition);
+}
+
+.category-pill:hover {
+  border-color: rgba(79, 70, 229, 0.6);
+  color: var(--text-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.category-pill--active {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 1) 0%, rgba(99, 102, 241, 1) 55%, rgba(34, 197, 94, 0.95) 115%);
+  border-color: transparent;
+  color: var(--white);
+  box-shadow: 0 10px 26px rgba(79, 70, 229, 0.25);
+}
+
+/* Results Grid */
+.cars-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  padding-bottom: 80px;
+}
+
+/* Empty State */
+.cars-empty {
+  text-align: center;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.cars-empty__icon {
+  font-size: 4rem;
+  margin-bottom: 8px;
+}
+
+.cars-empty h3 {
+  font-size: 1.5rem;
+  color: var(--midnight);
+}
+
+.cars-empty p {
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cars-results {
+    grid-template-columns: 1fr;
+  }
+
+  .cars-filters {
+    flex-direction: column;
+  }
+
+  .cars-search {
+    width: 100%;
+  }
+}

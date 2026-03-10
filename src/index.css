@@ -1,0 +1,207 @@
+/* ===== CSS RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* 2026 Design Tokens (light, premium, high-contrast) */
+  --bg: #0b0f19;
+  --bg-2: #0f1629;
+  --cream: #f7f8fb;          /* kept for existing styles */
+  --sand: #e9edf5;           /* kept for existing styles */
+  --white: #ffffff;          /* kept for existing styles */
+
+  --surface: rgba(255, 255, 255, 0.86);
+  --surface-solid: #ffffff;
+  --surface-2: rgba(255, 255, 255, 0.72);
+  --border: rgba(18, 24, 40, 0.10);
+  --border-strong: rgba(18, 24, 40, 0.16);
+
+  --midnight: #0b1020;       /* kept for existing styles */
+  --midnight-mid: #111a33;   /* kept for existing styles */
+  --midnight-light: #233056; /* kept for existing styles */
+
+  --text-dark: #0b1020;      /* kept for existing styles */
+  --text-mid: rgba(11, 16, 32, 0.78);
+  --text-light: rgba(11, 16, 32, 0.56);
+  --warm-gray: rgba(11, 16, 32, 0.50); /* kept for existing styles */
+
+  /* Accent (kept var names so existing CSS picks it up) */
+  --terracotta: #4f46e5;       /* indigo */
+  --terracotta-dark: #4338ca;
+  --terracotta-light: #22c55e; /* used for highlights in dark blocks */
+
+  --shadow-sm: 0 1px 0 rgba(18, 24, 40, 0.06), 0 10px 28px rgba(18, 24, 40, 0.08);
+  --shadow-md: 0 1px 0 rgba(18, 24, 40, 0.08), 0 18px 48px rgba(18, 24, 40, 0.12);
+  --shadow-lg: 0 1px 0 rgba(18, 24, 40, 0.10), 0 28px 80px rgba(18, 24, 40, 0.18);
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+
+  --transition: 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --focus-ring: 0 0 0 4px rgba(79, 70, 229, 0.16);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(900px 500px at 20% -10%, rgba(79, 70, 229, 0.10), transparent 55%),
+    radial-gradient(900px 520px at 95% 20%, rgba(34, 197, 94, 0.10), transparent 55%),
+    linear-gradient(180deg, #f7f8fb 0%, #f4f6fb 35%, #f7f8fb 100%);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4 {
+  font-family: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  outline: none;
+}
+
+::selection {
+  background: rgba(79, 70, 229, 0.18);
+}
+
+/* Better focus for keyboard users */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 10px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--midnight);
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  font-weight: 400;
+  margin-bottom: 48px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 1) 0%, rgba(99, 102, 241, 1) 50%, rgba(34, 197, 94, 0.95) 115%);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.20);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 46px rgba(79, 70, 229, 0.26);
+  filter: saturate(1.05);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.60);
+  color: var(--midnight);
+  padding: 13px 32px;
+  border-radius: 50px;
+  border: 1px solid var(--border-strong);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  backdrop-filter: blur(14px);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.82);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(233, 237, 245, 0.9);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(11, 16, 32, 0.22);
+  border-radius: 3px;
+}
+
+/* ===== PAGE TRANSITIONS ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .section-subtitle {
+    margin-bottom: 32px;
+  }
+}
